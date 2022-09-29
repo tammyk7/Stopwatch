@@ -1,0 +1,31 @@
+
+body{
+    height: 812px;
+    width: 375px;
+    align-content: center;
+    background: #101010;
+    color: #E5E9F0;
+    font-family: 'SPF Pro Text', monospace;
+    text-align: center;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+html{
+    background-color: #E5E9F0   ;
+}
+/* 
+:root {
+    --bg-color: #000000;
+    --start-btn-bg-color: rgba(48, 209, 88, 0.2);
+    --start-btn-text-color: rgb(48, 209, 88);
+    --start-btn-active-color: rgba(48, 209, 88, 0.1);
+    --stop-btn-bg-color: rgba(255, 69, 58, 0.2);
+    --stop-btn-text-color: rgb(255, 69, 58);
+    --stop-btn-active-color: rgba(255, 69, 58, 0.15);
+    --reset-btn-bg-color: #49494c;
+    --reset-btn-text-color: #fff;
+    --reset-btn-active-color: #222223;
+    --lap-btn-bg-color: rgba(73, 73, 76, 0.5);
+} */
