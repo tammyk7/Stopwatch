@@ -29,3 +29,11 @@ html{
     --reset-btn-active-color: #222223;
     --lap-btn-bg-color: rgba(73, 73, 76, 0.5);
 }
+
+.fastestLap {
+    color: green;
+}
+
+.slowestLap{
+    color: red;
+}

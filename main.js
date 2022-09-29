@@ -16,8 +16,9 @@ const stopwatch = {
 let isStarted = false;
 let formatLapTime = 0;
 let lapCounter = 1;
-let fastestLap = -1; //0
-let longestLap = Infinity;
+let slowestLap = -1; 
+let fastestLap = Infinity;
+let lap
 
 const padNumber =  (value) => Math.floor(value).toString().padStart(2, '0')
 
@@ -58,7 +59,7 @@ lapResetButton.onclick = () => {
 }
 
 const getLap = () => {
-    let lap = $lapTable.insertRow(0)
+    lap = $lapTable.insertRow(0)
     let lapNumber = lap.insertCell(0)
     let lapTime = lap.insertCell(1)
 
@@ -67,12 +68,17 @@ const getLap = () => {
 }
 
 const compareLap = () => {
-
     if (stopwatch.lapElapsedTime < fastestLap) {
         fastestLap = stopwatch.lapElapsedTime
+        console.log(fastestLap)
+        //remove all existing fastest lap class list 
+        lap.classList.add("fastestLap")
     }
-    else if (stopwatch.lapElapsedTime > longestLap) {
-        longestLap = stopwatch.lapElapsedTime
+    else if (stopwatch.lapElapsedTime > slowestLap) {
+        slowestLap = stopwatch.lapElapsedTime
+        console.log(slowestLap)
+        //remove all existing slowest lap class list 
+        lap.classList.add("slowestLap")
 }
 
 }
