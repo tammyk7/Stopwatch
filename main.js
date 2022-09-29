@@ -16,8 +16,8 @@ const stopwatch = {
 let isStarted = false;
 let formatLapTime = 0;
 let lapCounter = 1;
-let bestLapTime = 0;
-let worstLapTime = 0;
+let fastestLap = -1; //0
+let longestLap = Infinity;
 
 const padNumber =  (value) => Math.floor(value).toString().padStart(2, '0')
 
@@ -68,12 +68,11 @@ const getLap = () => {
 
 const compareLap = () => {
 
-    if (formatLapTime >= bestLapTime) {
-        
-        
+    if (stopwatch.lapElapsedTime < fastestLap) {
+        fastestLap = stopwatch.lapElapsedTime
     }
-    else if (formatLapTime <= worstLapTime) {
-        
+    else if (stopwatch.lapElapsedTime > longestLap) {
+        longestLap = stopwatch.lapElapsedTime
 }
 
 }
