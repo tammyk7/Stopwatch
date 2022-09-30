@@ -1,9 +1,9 @@
 
 const timer = document.getElementById('timer');
-const startStopButton = document.getElementById('startStopButton'); 
-const lapResetButton = document.getElementById('lapResetButton');
-const $lapTable = document.getElementById('lapTable');
-const lapTimer = document.getElementById('lapTimer');
+const startStopButton = document.getElementById('startStopButton')
+const lapResetButton = document.getElementById('lapResetButton')
+const $lapTable = document.getElementById('lapTable')
+const lapTimer = document.getElementById('lapTimer')
 
 const stopwatch = { 
     elapsedTime: 0,
@@ -13,16 +13,16 @@ const stopwatch = {
     intervalId: 0 
 };
 
-let isStarted = false;
-let formatLapTime = 0;
-let lapCounter = 1;
-let slowestLap = -1; 
-let fastestLap = Infinity;
+let isStarted = false
+let formatLapTime = 0
+let lapCounter = 1
+let slowestLap = -1
+let fastestLap = Infinity
 let lap
 
 const padNumber =  (value) => Math.floor(value).toString().padStart(2, '0')
 
-const getFormatTime = (elapsedTime) => {
+const getFormattedTime = (elapsedTime) => {
     const centiseconds =(elapsedTime % 1000) / 10
     const seconds = (elapsedTime / 1000) % 60
     const minutes =(elapsedTime / (1000 * 60)) % 60
@@ -30,15 +30,15 @@ const getFormatTime = (elapsedTime) => {
 }
 
 const runTimer = () => {
-    startStopButton.innerText = 'Stop';
+    startStopButton.innerText = 'Stop'
     lapResetButton.innerText = 'Lap'
     isStarted = true
     startTimer()
 }
 
 const stopTimer = () => {
-    startStopButton.innerText = 'Start';
-    lapResetButton.innerText = 'Reset';
+    startStopButton.innerText = 'Start'
+    lapResetButton.innerText = 'Reset'
     isStarted = false
     clearInterval(stopwatch.intervalId)
 }
@@ -70,17 +70,14 @@ const getLap = () => {
 const compareLap = () => {
     if (stopwatch.lapElapsedTime < fastestLap) {
         fastestLap = stopwatch.lapElapsedTime
-        console.log(fastestLap)
-        //remove all existing fastest lap class list 
-        lap.classList.add("fastestLap")
+        lap?.classList.remove('fastestLap')
+        lap.classList.add('fastestLap')
     }
-    else if (stopwatch.lapElapsedTime > slowestLap) {
+    if (stopwatch.lapElapsedTime > slowestLap) {
         slowestLap = stopwatch.lapElapsedTime
-        console.log(slowestLap)
-        //remove all existing slowest lap class list 
-        lap.classList.add("slowestLap")
-}
-
+        lap?.classList.remove('slowestLap')
+        lap.classList.add('slowestLap')
+    }
 }
 
 const startTimer = () => {
@@ -91,8 +88,8 @@ const startTimer = () => {
         
             stopwatch.elapsedTime = Date.now() - stopwatch.startTime 
             stopwatch.lapElapsedTime = Date.now() - stopwatch.lapTime 
-            const formatTime = getFormatTime(stopwatch.elapsedTime)
-            formatLapTime = getFormatTime(stopwatch.lapElapsedTime)
+            const formatTime = getFormattedTime(stopwatch.elapsedTime)
+            formatLapTime = getFormattedTime(stopwatch.lapElapsedTime)
 
             timer.innerText =`${formatTime[2]}:${formatTime[1]}.${formatTime[0]}` 
             lapTimer.innerText =`${formatLapTime[2]}:${formatLapTime[1]}.${formatLapTime[0]}`
