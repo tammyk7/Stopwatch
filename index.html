@@ -3,17 +3,21 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div>
-            <span id="timer">00:00.00</span>
-        </div>
+        <div class="wrapper">
+            <div class="main">
+                <div class="timer-container">
+                    <span id="timer">00:00.00</span>
+                </div>
         
-        <div>
-            <button id="lapResetButton">Lap</button> 
-            <button id="startStopButton">Start</button>
-        </div>
-        <div id="lapTimer">00:00.00</div>
-        <div>
-            <table id="lapTable"></table>
+                <div class="button-container">
+                    <button id="lapResetButton">Lap</button> 
+                    <button id="startStopButton">Start</button>
+                </div>
+                <div class="lap-table-container">
+                    <table id="lapTable"></table>
+                    <tr id="lapTimer">00:00.00</tr>
+                </div>
+            </div>
         </div>
     </body>
     <script src="main.js"></script>

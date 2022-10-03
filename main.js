@@ -11,14 +11,14 @@ const stopwatch = {
     startTime: 0,
     lapTime: 0,
     intervalId: 0 
-};
+}
 
 let isStarted = false
 let formatLapTime = 0
 let lapCounter = 1
 let slowestLap = -1
 let fastestLap = Infinity
-let lap
+let lapRow
 
 const padNumber =  (value) => Math.floor(value).toString().padStart(2, '0')
 
@@ -33,6 +33,7 @@ const runTimer = () => {
     startStopButton.innerText = 'Stop'
     lapResetButton.innerText = 'Lap'
     isStarted = true
+    // timerId = requestAnimationFrame(startTimer)
     startTimer()
 }
 
@@ -40,6 +41,7 @@ const stopTimer = () => {
     startStopButton.innerText = 'Start'
     lapResetButton.innerText = 'Reset'
     isStarted = false
+    // cancelAnimationFrame(stopwatch.intervalId)
     clearInterval(stopwatch.intervalId)
 }
 
@@ -59,26 +61,31 @@ lapResetButton.onclick = () => {
 }
 
 const getLap = () => {
-    lap = $lapTable.insertRow(0)
-    let lapNumber = lap.insertCell(0)
-    let lapTime = lap.insertCell(1)
+    lapRow = $lapTable.insertRow(0)
+    let lapNumber = lapRow.insertCell(0)
+    let lapTime = lapRow.insertCell(1)
 
     lapNumber.innerText = `Lap ${lapCounter++}`
     lapTime.innerText = ` ${formatLapTime[2]}:${formatLapTime[1]}.${formatLapTime[0]}`
-}
 
+}
+const getFirstLap = () => {
+    
+}
 const compareLap = () => {
     if (stopwatch.lapElapsedTime < fastestLap) {
         fastestLap = stopwatch.lapElapsedTime
-        lap?.classList.remove('fastestLap')
-        lap.classList.add('fastestLap')
+        // lapRow.classList.add('fastestLap')
+        lapRow.style.color = 'green'
     }
     if (stopwatch.lapElapsedTime > slowestLap) {
         slowestLap = stopwatch.lapElapsedTime
-        lap?.classList.remove('slowestLap')
-        lap.classList.add('slowestLap')
+        // lapRow.classList.add('slowestLap')
+        lapRow.style.color = 'red'
     }
 }
+
+
 
 const startTimer = () => {
         stopwatch.startTime = Date.now() - stopwatch.elapsedTime
