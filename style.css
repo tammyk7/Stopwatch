@@ -83,10 +83,10 @@ color: var(--start-btn-text-color);
 .lap-button {
 background-color: var(--lap-btn-bg-color);
 }
+
 .lapTable {
 color: white;
 }
-
 
 .fastestLap {
 color:  rgb(48, 209, 88)
