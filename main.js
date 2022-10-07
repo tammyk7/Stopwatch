@@ -33,15 +33,14 @@ const runTimer = () => {
     startStopButton.innerText = 'Stop'
     lapResetButton.innerText = 'Lap'
     isStarted = true
-    // timerId = requestAnimationFrame(startTimer)
     startTimer()
 }
 
 const stopTimer = () => {
+    
     startStopButton.innerText = 'Start'
     lapResetButton.innerText = 'Reset'
     isStarted = false
-    // cancelAnimationFrame(stopwatch.intervalId)
     clearInterval(stopwatch.intervalId)
 }
 
@@ -69,9 +68,11 @@ const getLap = () => {
     lapTime.innerText = ` ${formatLapTime[2]}:${formatLapTime[1]}.${formatLapTime[0]}`
 
 }
-const getFirstLap = () => {
-    
+// create a row for the lapTimer
+const firstLap = () => {
+
 }
+// store the lapRow data in below function
 const compareLap = () => {
     if (stopwatch.lapElapsedTime < fastestLap) {
         fastestLap = stopwatch.lapElapsedTime
@@ -84,8 +85,6 @@ const compareLap = () => {
         lapRow.style.color = 'red'
     }
 }
-
-
 
 const startTimer = () => {
         stopwatch.startTime = Date.now() - stopwatch.elapsedTime
