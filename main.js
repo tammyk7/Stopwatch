@@ -72,7 +72,7 @@ const getLap = () => {
 const firstLap = () => {
 
 }
-// store the lapRow data in below function
+
 const compareLap = () => {
     if (stopwatch.lapElapsedTime < fastestLap) {
         fastestLap = stopwatch.lapElapsedTime
