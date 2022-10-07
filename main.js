@@ -6,11 +6,11 @@ const $lapTable = document.getElementById('lapTable')
 const lapTimer = document.getElementById('lapTimer')
 
 const stopwatch = { 
-elapsedTime: 0,
-lapElapsedTime:0,
-startTime: 0,
-lapTime: 0,
-intervalId: 0 
+    elapsedTime: 0,
+    lapElapsedTime:0,
+    startTime: 0,
+    lapTime: 0,
+    intervalId: 0 
 }
 
 let isStarted = false
@@ -23,17 +23,17 @@ let lapRow
 const padNumber =  (value) => Math.floor(value).toString().padStart(2, '0')
 
 const getFormattedTime = (elapsedTime) => {
-const centiseconds =(elapsedTime % 1000) / 10
-const seconds = (elapsedTime / 1000) % 60
-const minutes =(elapsedTime / (1000 * 60)) % 60
-return [centiseconds, seconds, minutes].map(padNumber) 
+    const centiseconds =(elapsedTime % 1000) / 10
+    const seconds = (elapsedTime / 1000) % 60
+    const minutes =(elapsedTime / (1000 * 60)) % 60
+    return [centiseconds, seconds, minutes].map(padNumber) 
 }
 
 const runTimer = () => {
-startStopButton.innerText = 'Stop'
-lapResetButton.innerText = 'Lap'
-isStarted = true
-startTimer()
+    startStopButton.innerText = 'Stop'
+    lapResetButton.innerText = 'Lap'
+    isStarted = true
+    startTimer()
 }
 
 const stopTimer = () => {
@@ -60,12 +60,12 @@ else if (lapResetButton.innerText == 'Lap'){
 }
 
 const getLap = () => {
-lapRow = $lapTable.insertRow(0)
-let lapNumber = lapRow.insertCell(0)
-let lapTime = lapRow.insertCell(1)
+    lapRow = $lapTable.insertRow(0)
+    let lapNumber = lapRow.insertCell(0)
+    let lapTime = lapRow.insertCell(1)
 
-lapNumber.innerText = `Lap ${lapCounter++}`
-lapTime.innerText = ` ${formatLapTime[2]}:${formatLapTime[1]}.${formatLapTime[0]}`
+    lapNumber.innerText = `Lap ${lapCounter++}`
+    lapTime.innerText = ` ${formatLapTime[2]}:${formatLapTime[1]}.${formatLapTime[0]}`
 
 }
 // create a row for the lapTimer
@@ -103,10 +103,10 @@ const startTimer = () => {
 }
 
 const resetTimer = () => {
-stopwatch.elapsedTime = 0
-stopwatch.lapElapsedTime = 0
-timer.innerText = '00:00.00'
-lapTimer.innerText = '' 
-$lapTable.innerText = ''
-lapCounter = 1
+    stopwatch.elapsedTime = 0
+    stopwatch.lapElapsedTime = 0
+    timer.innerText = '00:00.00'
+    lapTimer.innerText = '' 
+    $lapTable.innerText = ''
+    lapCounter = 1
 }
